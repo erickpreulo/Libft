@@ -6,13 +6,13 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 11:19:50 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/13 11:19:50 by egomes           ###   ########.fr       */
+/*   Updated: 2021/02/17 15:29:45 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char        *strnstr(const char * s1, const char * s2, size_t len)
+char	*strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t h;
 	size_t n;

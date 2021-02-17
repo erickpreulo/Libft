@@ -6,13 +6,13 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/12 15:23:02 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/12 15:23:02 by egomes           ###   ########.fr       */
+/*   Updated: 2021/02/17 15:28:54 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	        ft_strlcat(char *dst, const char *src, size_t size)
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t c;
 	size_t d;

@@ -6,7 +6,7 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 19:59:25 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/09 19:59:25 by egomes           ###   ########.fr       */
+/*   Updated: 2021/02/17 15:30:53 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_ref
     int         j;
 }               t_list;
 
-void            *memset(void *str, int c, size_t n);
+void            *ft_memset(void *str, int c, size_t n);
 void	        ft_bzero(void *s, size_t n);
 void	        *ft_memcpy(void *dst, const void *src, size_t n);
 void	        *ft_memccpy(void *dst, const void *src, int c, size_t n);
