@@ -6,32 +6,37 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/13 12:15:03 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/17 16:25:54 by egomes           ###   ########.fr       */
+/*   Updated: 2021/02/26 15:15:25 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int	res;
-	int	negative;
+	int	sign;
+	int	result;
+	int	aux;
 
-	negative = 1;
-	res = 0;
-	while (*str == ' ' || *str == '\n' || *str == '\t' ||
-			*str == '\v' || *str == '\f' || *str == '\r')
-		++str;
-	while (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			negative *= -1;
-		++str;
-	}
+	sign = -1;
+	result = 0;
+	aux = 0;
+	while (*str == '\t' || *str == '\v' || *str == '\n'
+	|| *str == '\r' || *str == '\f' || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+		if (*str++ == '-')
+			sign = 1;
 	while (*str >= '0' && *str <= '9')
 	{
-		res = res * 10 + (*str - '0');
-		++str;
+		result = result * 10 - (*str++ - '0');
+		if (aux < result)
+		{
+			if (sign < 0)
+				return (-1);
+			return (0);
+		}
+		aux = result;
 	}
-	return (res * negative);
+	return (result * sign);
 }
