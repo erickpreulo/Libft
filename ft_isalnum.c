@@ -5,17 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 12:21:16 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:16:10 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:54:55 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:14:12 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalnum(int c)
+int	ft_isalnum(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') ||
-		(c >= '0' && c <= '9'))
+	if (ft_isalpha(c) || ft_isdigit(c))
 		return (1);
 	return (0);
 }

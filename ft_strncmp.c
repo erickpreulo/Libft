@@ -5,26 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 12:10:52 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:19:36 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:53:57 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:50:12 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	if (n == 0)
-		return (0);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
 	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0')
+	while ((str1[i] != '\0' || str2[i] != '\0') && i < n)
 	{
-		if (i < (n - 1))
-			i++;
-		else
-			return (0);
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
+		i++;
 	}
-	return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
+	return (0);
 }

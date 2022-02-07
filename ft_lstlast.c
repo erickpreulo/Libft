@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/25 17:47:10 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:17:39 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/18 16:22:14 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:24:06 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*last;
 
-	if (!(last = lst))
+	last = lst;
+	if (!(last))
 		return (NULL);
 	while (last->next)
 		last = last->next;

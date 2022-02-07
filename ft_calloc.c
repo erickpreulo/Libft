@@ -5,21 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 14:51:18 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:16:02 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:56:09 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:13:44 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	tot_size;
-	void	*dst;
+	void	*p;
 
-	tot_size = size * count;
-	if (!(dst = malloc(tot_size)))
-		return (0);
-	ft_memset(dst, 0, tot_size);
-	return (dst);
+	p = malloc(nmemb * size);
+	if (!(p))
+		return (NULL);
+	ft_bzero(p, nmemb * size);
+	return (p);
 }

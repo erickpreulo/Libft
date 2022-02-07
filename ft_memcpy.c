@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/11 20:44:03 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:18:13 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:50:43 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:18:31 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t count;
+	char	*dest_p;
+	char	*src_p;
+	size_t	i;
 
-	count = 0;
-	while (count < n)
+	if (!src && !dest)
+		return (NULL);
+	dest_p = dest;
+	src_p = (char *)src;
+	i = 0;
+	while (i < n)
 	{
-		((unsigned char*)dst)[count] = ((unsigned char*)src)[count];
-		count++;
+		dest_p[i] = src_p[i];
+		i++;
 	}
-	return (dst);
+	return (dest);
 }

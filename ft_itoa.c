@@ -5,12 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 19:10:18 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:17:16 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:54:06 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:16:10 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int	get_size(int n)
+{
+	int		size;
+
+	size = 0;
+	while (n)
+	{
+		n /= 10;
+		size++;
+	}
+	return (size);
+}
 
 char	*ft_itoa(int n)
 {
@@ -19,15 +32,11 @@ char	*ft_itoa(int n)
 	size_t	size;
 
 	nbr = n;
-	size = n > 0 ? 0 : 1;
-	nbr = nbr > 0 ? nbr : -nbr;
-	while (n)
-	{
-		n /= 10;
-		size++;
-	}
-	if (!(str = (char *)malloc(size + 1)))
-		return (0);
+	size = !(n > 0);
+	if (nbr < 0)
+		nbr = -nbr;
+	size += get_size(n);
+	str = ft_newstr(size);
 	str[size--] = '\0';
 	while (nbr > 0)
 	{

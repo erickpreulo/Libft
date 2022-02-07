@@ -5,33 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 11:19:50 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:19:40 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:53:47 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:22:01 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	size_t h;
-	size_t n;
+	size_t	i;
+	size_t	j;
 
-	h = 0;
 	if (s2[0] == '\0')
 		return ((char *)s1);
-	while (s1[h] != '\0')
+	i = 0;
+	while (s1[i] && i < n)
 	{
-		n = 0;
-		while (s1[h + n] == s2[n] && (h + n) < len)
+		j = 0;
+		while (s2[j] && (i + j) < n && s1[i + j] == s2[j])
 		{
-			if (s1[h + n] == '\0' && s2[n] == '\0')
-				return ((char *)&s1[h]);
-			n++;
+			j++;
 		}
-		if (s2[n] == '\0')
-			return ((char *)s1 + h);
-		h++;
+		if (s2[j] == '\0')
+			return ((char *)&s1[i]);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

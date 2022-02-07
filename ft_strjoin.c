@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 18:57:26 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:18:59 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/15 12:21:40 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:25:23 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,19 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new_str;
-	int		i;
-	int		j;
+	int		len_s1;
+	int		len_s2;
+	char	*str;
 
-	if (!s1 || !s2 ||
-		!(new_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1)))
-		return (0);
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		new_str[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j] != '\0')
-		new_str[i++] = s2[j++];
-	new_str[i] = '\0';
-	return (new_str);
+	if (!s1 || !s2)
+		return (NULL);
+	len_s1 = ft_strlen((char *)s1);
+	len_s2 = ft_strlen((char *)s2);
+	str = malloc((len_s1 + len_s2 + 1) * sizeof(char));
+	if (!(str))
+		return (NULL);
+	ft_memcpy(str, (char *)s1, len_s1);
+	ft_memcpy(str + len_s1, (char *)s2, len_s2);
+	str[len_s1 + len_s2] = '\0';
+	return (str);
 }

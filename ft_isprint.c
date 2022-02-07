@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/13 18:19:50 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:17:10 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:55:40 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:15:05 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isprint(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
+	if (c >= 32 && c < 127)
 		return (1);
 	return (0);
 }

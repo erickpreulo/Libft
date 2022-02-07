@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/12 15:33:24 by egomes            #+#    #+#             */
-/*   Updated: 2021/02/26 15:18:50 by egomes           ###   ########.fr       */
+/*   Created: 2021/02/10 22:53:30 by acanterg          #+#    #+#             */
+/*   Updated: 2022/02/07 22:24:35 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,5 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned char	cc;
-
-	cc = (unsigned char)c;
-	while (*s)
-	{
-		if (*s == cc)
-			return ((char *)s);
-		s++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (NULL);
+	return ((char *)ft_memchr(s, c, ft_strlen(s) + 1));
 }
