@@ -6,46 +6,91 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 22:54:06 by acanterg          #+#    #+#             */
-/*   Updated: 2022/02/07 22:16:10 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/07 23:56:59 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_size(int n)
+static int	nbr_digits(int n)
 {
-	int		size;
+	int	counter;
 
-	size = 0;
-	while (n)
+	counter = 0;
+	while (n > 0)
 	{
+		counter++;
 		n /= 10;
-		size++;
 	}
-	return (size);
+	return (counter);
+}
+
+static char	*handle_exception(int n)
+{
+	char	*str;
+
+	if (n == 0)
+	{
+		str = malloc(2 * sizeof(char));
+		if (!(str))
+			return (NULL);
+		ft_strlcpy(str, "0", 2);
+	}
+	else
+	{
+		str = malloc(12 * sizeof(char));
+		if (!(str))
+			return (NULL);
+		ft_strlcpy(str, "-2147483648", 12);
+	}
+	return (str);
+}
+
+int	count(int n)
+{
+	int	len;
+
+	if (n >= 0)
+		len = nbr_digits(n) + 1;
+	else
+		len = nbr_digits(-n) + 1;
+	return (len);
+}
+
+bool	is_neg(int n)
+{
+	if (n < 0)
+	{
+		len++;
+		isneg = 1;
+		n = -n;
+		return (TRUE);
+	}
+	return (FALSE);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	long	nbr;
-	size_t	size;
+	int		isneg;
+	int		len;
 
-	nbr = n;
-	size = !(n > 0);
-	if (nbr < 0)
-		nbr = -nbr;
-	size += get_size(n);
-	str = ft_newstr(size);
-	str[size--] = '\0';
-	while (nbr > 0)
+	if (n == 0 || n == -2147483648)
+		return (handle_exception(n));
+	isneg = 0;
+	len = count(n);
+	if (is_neg)
+		isneg = 1;
+	str = malloc(len * sizeof(char));
+	if (!(str))
+		return (NULL);
+	str[--len] = '\0';
+	while (n > 0)
 	{
-		str[size--] = nbr % 10 + '0';
-		nbr /= 10;
+		str[--len] = (n % 10) + '0';
+		n /= 10;
 	}
-	if (size == 0 && str[1] == '\0')
-		str[size] = '0';
-	else if (size == 0 && str[1] != '\0')
-		str[size--] = '-';
+	if (isneg)
+		str[0] = '-';
 	return (str);
 }
