@@ -6,7 +6,7 @@
 /*   By: egomes <egomes@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 22:54:06 by acanterg          #+#    #+#             */
-/*   Updated: 2022/02/07 23:56:59 by egomes           ###   ########.fr       */
+/*   Updated: 2022/02/08 00:05:27 by egomes           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,14 @@ int	count(int n)
 	return (len);
 }
 
-bool	is_neg(int n)
+int	is_neg(int n)
 {
-	if (n < 0)
-	{
-		len++;
+	int	isneg;
+
+	isneg = 0;
+	if (n > 0)
 		isneg = 1;
-		n = -n;
-		return (TRUE);
-	}
-	return (FALSE);
+	return (isneg);
 }
 
 char	*ft_itoa(int n)
@@ -77,10 +75,13 @@ char	*ft_itoa(int n)
 
 	if (n == 0 || n == -2147483648)
 		return (handle_exception(n));
-	isneg = 0;
 	len = count(n);
-	if (is_neg)
-		isneg = 1;
+	isneg = is_neg(n);
+	if (isneg)
+	{
+		n = -n;
+		len++;
+	}
 	str = malloc(len * sizeof(char));
 	if (!(str))
 		return (NULL);
